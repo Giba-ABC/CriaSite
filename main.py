@@ -1,20 +1,10 @@
 # https://flask.palletsprojects.com/en/2.0.x/quickstart/#a-minimal-application
+# pip install flask
+# pip install flask-wtf (criação de formulários - forms.py
+# pip install email_validator
+# pip install flask-sqlalchemy (banco de dados)
 
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
-@app.route("/")  ## indica qual url começa o site
-def hello_world():
-    return render_template('home.html')
-
-@app.route("/contato")  ## criei a pasta contato
-def dizai():
-    return render_template('contato.html')
-
-
-
-
+from sitecomunidade import app
 
 if __name__ == '__main__':
     app.run(debug=True) ## atualiza o site sem precisar para o APP

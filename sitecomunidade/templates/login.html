@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h1>Faça login ou crie sua conta para continuar !</h1>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <form method="post" action="" class="border p-4 mt-2">
+            {{Form_login.csrf_token}}
+            <legend>Login !!! </legend>
+            <fieldset>
+                <div class="form-grupo">
+                    {{ Form_login.email.label(class = "form-control-label") }}
+                    {% if Form_login.email.errors %}
+                        {{ Form_login.email(class = "form-control is-invalid") }}
+                        {% for erro in Form_login.email.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    {% else %}
+                        {{ Form_login.email(class = "form-control") }}
+                    {% endif %}
+                </div>
+                <div class="form-grupo">
+                    {{ Form_login.senha.label(class = "form-control-label") }}
+                    {% if Form_login.senha.errors %}
+                        {{ Form_login.senha(class = "form-control is-invalid") }}
+                        {% for erro in Form_login.senha.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    {% else %}
+                        {{ Form_login.senha(class = "form-control") }}
+                    {% endif %}
+                </div>
+                <div class="form-grupo mt-2">
+                    {{ Form_login.lembrar.label(class = "form-check-label")}}
+                    {{ Form_login.lembrar(class = "form-check-input") }}
+                </div>
+            </fieldset>
+            {{ Form_login.botaoL(class = "btn btn-primary mt-2") }}
+        </form>
+      </div>
+      <div class="col">
+          <form method="post" action="" class="border p-4 mt-2">
+            {{Form_Cria.csrf_token}}
+            <legend>Cadastro Usuário</legend>
+            <fieldset>
+                <div class="form-grupo">
+                    {{ Form_Cria.username.label(class = "form-control-label") }}
+                    {% if Form_Cria.username.errors %}
+                        {{ Form_Cria.username(class = "form-control is-invalid") }}
+                        {% for erro in Form_Cria.username.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    {% else %}
+                        {{ Form_Cria.username(class = "form-control") }}
+                    {% endif %}                    
+                </div>
+                <div class="form-grupo">
+                    {{ Form_Cria.email.label(class = "form-control-label") }}
+                    {% if Form_Cria.email.errors %}
+                        {{ Form_Cria.email(class = "form-control is-invalid") }}
+                        {% for erro in Form_Cria.email.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    {% else %}
+                        {{ Form_Cria.email(class = "form-control") }}
+                    {% endif %}
+                </div>
+                <div class="form-grupo">
+                    {{ Form_Cria.senha.label(class = "form-control-label") }}
+                    {% if Form_Cria.senha.errors %}
+                        {{ Form_Cria.senha(class = "form-control is-invalid") }}
+                        {% for erro in Form_Cria.senha.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    {% else %}
+                        {{ Form_Cria.senha(class = "form-control") }}
+                    {% endif %}
+                </div>
+                <div class="form-grupo">
+                    {{ Form_Cria.confirma.label(class = "form-control-label") }}
+                    {% if Form_Cria.confirma.errors %}
+                        {{ Form_Cria.confirma(class = "form-control is-invalid") }}
+                        {% for erro in Form_Cria.confirma.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    {% else %}
+                        {{ Form_Cria.confirma(class = "form-control") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            {{ Form_Cria.botao(class = "btn btn-primary mt-2") }}
+          </form>
+      </div >
+    </div>
+</div>
+{% endblock %}
