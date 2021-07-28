@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <p>Criar post ! </p>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <form method="post" action="" class="border p-4 mt-2" enctype="multipart/form-data">
+                {{form.csrf_token}}
+                <legend>Criar Post</legend>
+                <fieldset>
+                  <div class="form-grupo">
+                        {{ form.titulo.label(class = "form-control-label") }}
+                        {% if form.titulo.errors %}
+                            {{ form.titulo(class = "form-control is-invalid") }}
+                            {% for erro in form.titulo.errors %}
+                                {{ erro }}
+                            {% endfor %}
+                        {% else %}
+                            {{ form.titulo(class = "form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-grupo">
+                        {{ form.corpo.label(class = "form-control-label") }}
+                        {% if form.corpo.errors %}
+                            {{ form.corpo(class = "form-control is-invalid") }}
+                            {% for erro in form.corpo.errors %}
+                                {{ erro }}
+                            {% endfor %}
+                        {% else %}
+                            {{ form.corpo(class = "form-control") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                {{ form.botaoP(class = "btn btn-primary mt-2") }}
+            </form>
+          </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

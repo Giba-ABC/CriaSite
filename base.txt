@@ -57,4 +57,44 @@ usu_tmp = Usuario.query.filter_by(email = 'gasparjunior2008.com.br').first() -->
   12) database.drop_all()
   13) database.create_all()
 
+---- criptografica senha
+
+from flask_bcrypt import Bcrypt
+cria instancia - app 
+bcrypt = Bcrypt(app)
+---- routes.py
+from sitecomunidade import app, database, 'bcryp'
+
+quando gravar :
+senha_cript = bcrypt.generate_password_hash(Form_Cria.senha.data)
+para verificar
+if bcrypt.check_password_hash(senha grava, senha input):
+  print('ok')
+
+--- validando email unique
+
+from wtforms.validators import DataRequired, Length, Email, EqualTo, 'ValidationError'
+
+classe criaconta, criar função 
+ 
+   def validate_email(self, email)
+       usuario = verifica se existe algum email cadastrado
+       encontrou :
+             raise ValidationError('E-mail já cadastrado')
+
+
+pagina : perfil
+https://freefrontend.com/bootstrap-profiles/
+exemplo utilizado : https://bbbootstrap.com/snippets/bootstrap-sidebar-user-profile-62301382
+
+------------------- 
+Sequencia criação de paginas novas
+-------------------
+1 - criar formulário em form.py
+2 - criar link no route.py
+3 - editar / criar o html em <templates>
+
+
+
+
 

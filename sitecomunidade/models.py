@@ -1,9 +1,14 @@
 # Estrutura do Banco de Dados
-from sitecomunidade import database
+from sitecomunidade import database, login_manager
+from flask_login    import UserMixin ## controle de Login
 # data
 from datetime import datetime
 
-class Usuario(database.Model):
+@login_manager.user_loader
+def load_usuario(id_usuario):
+    return Usuario.query.get(int(id_usuario))
+
+class Usuario(database.Model, UserMixin):
     id          = database.Column(database.Integer, primary_key=True)
     username    = database.Column(database.String, nullable=False)
     senha       = database.Column(database.String)
@@ -11,6 +16,9 @@ class Usuario(database.Model):
     foto_perfil = database.Column(database.String, default='padrao.jpg', nullable=False)
     cursos      = database.Column(database.String, default='Não Informado', nullable=False)
     posts       = database.relationship('Post', backref='autor', lazy=True)
+
+    def contar_posts(self):
+        return len(self.posts)
 
 class Post(database.Model):
     id          = database.Column(database.Integer, primary_key=True)

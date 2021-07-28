@@ -1,8 +1,32 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <div class="container">
-        <h1>Titulo h1 - no site ....</h1>
-        <p>Hello, World! --- atualiza !!!! com o Debug ...</p>
+    <div class="container mt-3">
+        <h1 style="color: Blue">Comunidade python</h1>
+        <h2>Alunos do curso python - Hashtag</h2>
+        <hr>
+        {% for post in posts %}
+        <div class="row border mt-4 p-3 meupost">
+            <div class="col-3">
+            <div class="image pe-2"> <img src="{{url_for('static', filename='fotos_perfil/{}'.format(post.autor.foto_perfil))}}" class="rounded" width="200"> </div>
+            <strong> {{post.autor.username }} </strong>
+
+            <div class="row justify-content-center">
+                <div class="col" style="text-align: center">
+                    {% for curso in post.autor.cursos.split(';') %}
+                        <button type="button" class="btn btn-success" disabled>{{curso}}</button>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            </div>
+            <div class="col-9">
+                <a style="text-decoration: none" href="{{url_for('exibir_post', post_id= post.id)}}"> <h3> {{ post.titulo }} </h3> </a>
+                <p> {{ post.corpo }} </p>
+            </div>
+        </div>
+
+        {% endfor %}
     </div>
 {% endblock %}

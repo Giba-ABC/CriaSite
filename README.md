@@ -2,7 +2,7 @@
 
 fonte : curso python impressionador - Hashtag Treinamentos
 
-## Primeiro Projeto para criação de Sites (utilizando o Flask + python)
+## Primeiro Projeto para criação de Sites (Flask + python)
 
 ## Objetivo
 

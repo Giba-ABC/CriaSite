@@ -3,6 +3,9 @@
 # pip install flask-wtf (criação de formulários - forms.py
 # pip install email_validator
 # pip install flask-sqlalchemy (banco de dados)
+# pip install flask-bcrypt (criptografia da senha)
+# pip install flask-login
+# pip install pillow - compacta imagem
 
 from sitecomunidade import app
 
